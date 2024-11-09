@@ -1,0 +1,10 @@
+{
+  "@@locale" : "en",
+
+  "login" : "Log in" ,
+  "todo" : "Today",
+  "progress" : "Progress",
+  "support" : "Support",
+  "treatment" : "Treatment",
+  "export" : "Export"
+}
