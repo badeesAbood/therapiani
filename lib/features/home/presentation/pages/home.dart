@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_app/app/services/router.gr.dart';
 import 'package:my_app/features/home/presentation/widgets/authintecated_scaffold.dart';
+import 'package:my_app/features/home/presentation/widgets/home_app_bar.dart';
 import 'package:my_app/l10n/l10n.dart';
 
 @RoutePage()
@@ -12,22 +13,24 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<AppBar> _bars = [
-      AppBar(
-        title: Text(context.l10n.todo),
-        actions: [],
+    final List<HomeAppBarModel> _bars = [
+      HomeAppBarModel(
+        title: context.l10n.todo,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.notifications_none))
+        ],
       ),
-      AppBar(
-        title: Text(context.l10n.progress),
+      HomeAppBarModel(
+        title: context.l10n.progress,
         actions: [
           TextButton(onPressed: () {}, child: Text(context.l10n.export))
         ],
       ),
-      AppBar(
-        title: Text(context.l10n.support),
+      HomeAppBarModel(
+        title: context.l10n.support,
       ),
-      AppBar(
-        title: Text(context.l10n.treatment),
+      HomeAppBarModel(
+        title: context.l10n.treatment,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.person_outline))
         ],
@@ -36,12 +39,18 @@ class HomePage extends StatelessWidget {
 
     return AutoTabsRouter.tabBar(
         routes: const [
-          TodayRoute() ,
+          TodayRoute(),
+          ProgressRoute(),
+          SupportRoute(),
+          TreatmentRoute()
         ],
         builder: (context, child, _) {
           final tabsRouter = AutoTabsRouter.of(context);
           return AuthintecatedScaffold(
-            appBar: _bars[tabsRouter.activeIndex],
+            appBar: HomeAppBar(
+              title: _bars[tabsRouter.activeIndex].title,
+              actions: _bars[tabsRouter.activeIndex].actions,
+            ),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: tabsRouter.activeIndex,
               onTap: tabsRouter.setActiveIndex,

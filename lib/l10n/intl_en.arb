@@ -1,10 +1,16 @@
 {
-  "@@locale" : "en",
-
-  "login" : "Log in" ,
-  "todo" : "Today",
-  "progress" : "Progress",
-  "support" : "Support",
-  "treatment" : "Treatment",
-  "export" : "Export"
+  "@@locale": "en",
+  "login": "Log in",
+  "todo": "Today",
+  "progress": "Progress",
+  "support": "Support",
+  "treatment": "Treatment",
+  "export": "Export",
+  "medicationQuery": "Which medication would you like to set the reminder for ?",
+  "name": "name" ,
+  "getStarted" : "Get started" ,
+  "treatmentAddExplanation" : "Add reminders for your medications, track your inventory and much more",
+  "addReminder" : "Add reminder " ,
+  "unit" : "Unit" ,
+  "next": "next"
 }

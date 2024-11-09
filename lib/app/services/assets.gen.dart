@@ -21,8 +21,12 @@ class $AssetsAnimationsGen {
   LottieGenImage get notifications =>
       const LottieGenImage('assets/animations/notifications.json');
 
+  /// File path: assets/animations/treat_add.json
+  LottieGenImage get treatAdd =>
+      const LottieGenImage('assets/animations/treat_add.json');
+
   /// List of all assets
-  List<LottieGenImage> get values => [charts, notifications];
+  List<LottieGenImage> get values => [charts, notifications, treatAdd];
 }
 
 class Assets {

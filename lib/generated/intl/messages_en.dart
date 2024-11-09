@@ -22,11 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addReminder": MessageLookupByLibrary.simpleMessage("Add reminder "),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
+        "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "login": MessageLookupByLibrary.simpleMessage("Log in"),
+        "medicationQuery": MessageLookupByLibrary.simpleMessage(
+            "Which medication would you like to set the reminder for ?"),
+        "name": MessageLookupByLibrary.simpleMessage("name"),
+        "next": MessageLookupByLibrary.simpleMessage("next"),
         "progress": MessageLookupByLibrary.simpleMessage("Progress"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
         "todo": MessageLookupByLibrary.simpleMessage("Today"),
-        "treatment": MessageLookupByLibrary.simpleMessage("Treatment")
+        "treatment": MessageLookupByLibrary.simpleMessage("Treatment"),
+        "treatmentAddExplanation": MessageLookupByLibrary.simpleMessage(
+            "Add reminders for your medications, track your inventory and much more"),
+        "unit": MessageLookupByLibrary.simpleMessage("Unit")
       };
 }

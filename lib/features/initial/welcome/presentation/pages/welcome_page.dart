@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_app/app/services/assets.gen.dart';
+import 'package:my_app/app/services/router.gr.dart';
 import 'package:my_app/l10n/l10n.dart';
 
 part '../widgets/animated_content.dart';
@@ -56,7 +58,9 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: 40,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushRoute(HomeRoute()) ;
+                },
                 style: ElevatedButton.styleFrom(
                   shape: const BeveledRectangleBorder(),
                   minimumSize: const Size(double.infinity, 40),

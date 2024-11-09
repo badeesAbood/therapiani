@@ -109,6 +109,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Which medication would you like to set the reminder for ?`
+  String get medicationQuery {
+    return Intl.message(
+      'Which medication would you like to set the reminder for ?',
+      name: 'medicationQuery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `name`
+  String get name {
+    return Intl.message(
+      'name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get started`
+  String get getStarted {
+    return Intl.message(
+      'Get started',
+      name: 'getStarted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add reminders for your medications, track your inventory and much more`
+  String get treatmentAddExplanation {
+    return Intl.message(
+      'Add reminders for your medications, track your inventory and much more',
+      name: 'treatmentAddExplanation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add reminder `
+  String get addReminder {
+    return Intl.message(
+      'Add reminder ',
+      name: 'addReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unit`
+  String get unit {
+    return Intl.message(
+      'Unit',
+      name: 'unit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `next`
+  String get next {
+    return Intl.message(
+      'next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
