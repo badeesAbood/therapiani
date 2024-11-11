@@ -36,8 +36,9 @@ class _AnimatedContentState extends State<_AnimatedContent>
 
   @override
   void dispose() {
-    _controller.stop();
-    _controller.dispose();
+    _controller
+      ..stop()
+      ..dispose();
     super.dispose();
   }
 
@@ -51,18 +52,17 @@ class _AnimatedContentState extends State<_AnimatedContent>
           alignment: Alignment.center,
           children: [
             Positioned(
-              child: widget.image,
               right: 0,
               top: 0,
               bottom: 0,
               left: 0,
+              child: widget.image,
             ),
             RotationTransition(
               turns: CurvedAnimation(
-                  parent:
-                      Tween<double>(begin: 0, end: 0.5).animate(_controller),
+                  parent: Tween<double>(begin: 0, end: 1).animate(_controller),
                   curve: Curves.bounceOut),
-              child: Container(
+              child: SizedBox(
                 width: contSized,
                 height: contSized,
                 child: CustomPaint(

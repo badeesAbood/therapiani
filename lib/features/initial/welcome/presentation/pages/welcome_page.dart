@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -57,7 +56,7 @@ class _WelcomePageState extends State<WelcomePage> {
               const SizedBox(
                 height: 40,
               ),
-              ElevatedButton(
+              FilledButton(
                 onPressed: () {
                   context.pushRoute(HomeRoute()) ;
                 },

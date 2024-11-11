@@ -179,6 +179,66 @@ class S {
       args: [],
     );
   }
+
+  /// `How often do you take this medication?`
+  String get treatmentIntervalQuery {
+    return Intl.message(
+      'How often do you take this medication?',
+      name: 'treatmentIntervalQuery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time`
+  String get time {
+    return Intl.message(
+      'Time',
+      name: 'time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dose`
+  String get dose {
+    return Intl.message(
+      'Dose',
+      name: 'dose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remindMe`
+  String get remindMe {
+    return Intl.message(
+      'remindMe',
+      name: 'remindMe',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/app/services/assets.gen.dart';
 import 'package:my_app/app/services/router.gr.dart';
 import 'package:my_app/app/widgets/list.dart';
 import 'package:my_app/l10n/l10n.dart';
@@ -18,10 +19,7 @@ class TreatmentPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                Icons.calendar_month,
-                size: 200,
-              ),
+             Assets.vectors.treatmentCalendar.svg(height: 300) ,
               Text(
                 context.l10n.getStarted,
                 style: Theme.of(context).textTheme.headlineMedium,
@@ -30,7 +28,7 @@ class TreatmentPage extends StatelessWidget {
                 context.l10n.treatmentAddExplanation,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              ElevatedButton(
+              FilledButton(
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 40),
                       shape: const RoundedRectangleBorder()),

@@ -155,3 +155,7 @@ const ColorScheme darkColorScheme = ColorScheme(
   surfaceTint: Color(0xffd0bcff),
 );
 
+
+extension ThemeService on BuildContext {
+  ThemeData get theme => Theme.of(this) ;
+}

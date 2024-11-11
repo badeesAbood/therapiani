@@ -17,7 +17,7 @@ class Entry extends StatelessWidget {
       locale: const Locale('en'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: AppTheme.light,
+      theme: AppTheme.dark,
      routerConfig: _appRouter.config(),
     ) ;
   }

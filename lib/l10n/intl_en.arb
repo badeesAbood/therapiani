@@ -12,5 +12,11 @@
   "treatmentAddExplanation" : "Add reminders for your medications, track your inventory and much more",
   "addReminder" : "Add reminder " ,
   "unit" : "Unit" ,
-  "next": "next"
+  "next": "next" ,
+  "treatmentIntervalQuery" : "How often do you take this medication?" ,
+  "time": "Time",
+  "dose": "Dose" ,
+  "cancel": "Cancel" ,
+  "ok" : "OK" ,
+  "remindMe": "remindMe"
 }
