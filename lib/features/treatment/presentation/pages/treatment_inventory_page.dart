@@ -14,6 +14,7 @@ class TreatmentInventoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -46,19 +47,14 @@ class TreatmentInventoryPage extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            BlocBuilder<ProgressViewBloc, double>(
-              buildWhen: (previous, current) => current != previous,
-              builder: (context, state) {
-                return FilledButton(
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(double.infinity, 40),
-                        shape: const RoundedRectangleBorder()),
-                    onPressed: () {
-                      // context.pushRoute(const ());
-                    },
-                    child: Text(context.l10n.next));
-              },
-            ),
+            FilledButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 40),
+                    shape: const RoundedRectangleBorder()),
+                onPressed: () {
+                  // context.pushRoute(const ());
+                },
+                child: Text(context.l10n.next))
           ],
         ),
       ),

@@ -10,17 +10,17 @@ class TreatmentProgressPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = ProgressViewBloc(0);
+    final bloc = ProgressViewBloc(0)..setSack = 4;
     return Material(
       child: BlocProvider(
         create: (context) => bloc,
         child: BlocBuilder<ProgressViewBloc, double>(
           buildWhen: (previous, current) => previous != current,
           builder: (context, state) {
-            context.read<ProgressViewBloc>().setSack = 4;
             return Column(
               children: [
-                Expanded(child: AutoRouter(
+                Expanded(
+                    child: AutoRouter(
                   navigatorObservers: () {
                     return [TreatmentRouterObserver(bloc)];
                   },

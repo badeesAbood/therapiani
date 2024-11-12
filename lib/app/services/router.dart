@@ -21,16 +21,20 @@ class AppRouter extends RootStackRouter {
               customRouteBuilder: customBuilder,
             ),
             CustomRoute(
-                customRouteBuilder: customBuilder,
-                page: TreatmentIntervalRoute.page,
+              customRouteBuilder: customBuilder,
+              page: TreatmentIntervalRoute.page,
             ),
             CustomRoute(
-                customRouteBuilder: customBuilder,
-                page: TreatmentTimeRoute.page,
+              customRouteBuilder: customBuilder,
+              page: TreatmentTimeMoreRoute.page,
             ),
             CustomRoute(
-                customRouteBuilder: customBuilder,
-                page: TreatmentInventoryRoute.page,
+              customRouteBuilder: customBuilder,
+              page: TreatmentTimeRoute.page,
+            ),
+            CustomRoute(
+              customRouteBuilder: customBuilder,
+              page: TreatmentInventoryRoute.page,
             ),
           ],
         ),
@@ -42,7 +46,8 @@ Route<T> customBuilder<T>(
   Widget child,
   AutoRoutePage<T> page,
 ) =>
-    PageRouteBuilder(
+    PageRouteBuilder<T>(
+      transitionDuration: const Duration(milliseconds: 800),
       fullscreenDialog: page.fullscreenDialog,
       settings: page,
       pageBuilder: (context, animation, secondaryAnimation) => child,
@@ -51,23 +56,25 @@ Route<T> customBuilder<T>(
         Animation<double> animation,
         Animation<double> secondaryAnimation,
         Widget child,
-      ) =>
-          Stack(
-        children: <Widget>[
-          SlideTransition(
-            position:  Tween<Offset>(
-              begin:  Offset.zero,
-              end: const Offset(-1, 0),
-            ).animate(animation),
-            child: child,
-          ),
-          SlideTransition(
-            position:  Tween<Offset>(
-              begin: const Offset(1, 0),
-              end: Offset.zero,
-            ).animate(animation),
-            child: page.child,
-          )
-        ],
-      ),
+      ) {
+        final stackLength = context.router.current.router.stack.length;
+        return Stack(
+          children: <Widget>[
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: Offset.zero,
+                end: const Offset(-1, 0),
+              ).animate(animation),
+              child: context.router.current.router
+                  .stack[stackLength < 2 ? 0 : stackLength - 2].child,
+            ),
+            SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(1, 0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child)
+          ],
+        );
+      },
     );

@@ -14,14 +14,14 @@ class TreatmentAddPage extends StatelessWidget {
 
   late final TextEditingController _nameController;
 
-
   @override
   Widget build(BuildContext context) {
     String choice = _units.first;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () => context.maybePop(), icon: Icon(Icons.close)),
+            onPressed: () => context.maybePop(), icon: const Icon(Icons.close)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
