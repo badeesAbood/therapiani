@@ -16,29 +16,57 @@ class AppRouter extends RootStackRouter {
         CustomRoute(
           page: TreatmentProgressRoute.page,
           children: [
-            CustomRoute(
+            CustomRoute<Widget>(
               page: TreatmentAddRoute.page,
-              customRouteBuilder: customBuilder,
+              transitionsBuilder: slideAnimationBuilder,
             ),
-            CustomRoute(
-              customRouteBuilder: customBuilder,
+            CustomRoute<Widget>(
+              transitionsBuilder: slideAnimationBuilder,
+              // customRouteBuilder: slideAnimationBuilder,
               page: TreatmentIntervalRoute.page,
             ),
-            CustomRoute(
-              customRouteBuilder: customBuilder,
+            CustomRoute<Widget>(
+              transitionsBuilder: slideAnimationBuilder,
               page: TreatmentTimeMoreRoute.page,
             ),
-            CustomRoute(
-              customRouteBuilder: customBuilder,
+            CustomRoute<Widget>(
+              transitionsBuilder: slideAnimationBuilder,
               page: TreatmentTimeRoute.page,
             ),
-            CustomRoute(
-              customRouteBuilder: customBuilder,
+            CustomRoute<Widget>(
+              transitionsBuilder: slideAnimationBuilder,
               page: TreatmentInventoryRoute.page,
             ),
           ],
         ),
       ];
+}
+
+Widget slideAnimationBuilder<T>(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child) {
+  final stackLength = context.router.current.router.stack.length;
+  final oldRoute = context
+      .router.current.router.stack[stackLength < 2 ? 0 : stackLength - 2].child;
+  return Stack(
+    children: [
+      SlideTransition(
+        position: Tween<Offset>(
+          begin: Offset.zero,
+          end: const Offset(-1, 0),
+        ).animate(animation),
+        child: oldRoute,
+      ),
+      SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1, 0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child)
+    ],
+  );
 }
 
 Route<T> customBuilder<T>(
