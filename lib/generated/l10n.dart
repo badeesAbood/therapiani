@@ -239,6 +239,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Charts`
+  String get charts {
+    return Intl.message(
+      'Charts',
+      name: 'charts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List`
+  String get list {
+    return Intl.message(
+      'List',
+      name: 'list',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `One-time entry`
+  String get oneTimeEntry {
+    return Intl.message(
+      'One-time entry',
+      name: 'oneTimeEntry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `last 7 Days`
+  String get last7days {
+    return Intl.message(
+      'last 7 Days',
+      name: 'last7days',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

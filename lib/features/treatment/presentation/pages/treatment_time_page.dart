@@ -1,11 +1,8 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app/app/services/assets.gen.dart';
 import 'package:my_app/app/services/router.gr.dart';
 import 'package:my_app/app/services/theme.dart';
-import 'package:my_app/features/treatment/presentation/manager/progress_view_bloc/progress_view_bloc.dart';
 import 'package:my_app/l10n/l10n.dart';
 
 part '../widgets/intake_selector.dart';
@@ -49,46 +46,49 @@ class TreatmentTimePage extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (context) {
-                          return Dialog(
-                            shape: const RoundedRectangleBorder(),
-                            insetPadding: const EdgeInsets.all(10),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    context.l10n.dose,
-                                    style: context.theme.textTheme.titleLarge,
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  const TextField(
-                                    decoration: InputDecoration(
-                                      border: UnderlineInputBorder(),
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            child: Dialog(
+                              shape: const RoundedRectangleBorder(),
+                              insetPadding: const EdgeInsets.all(10),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      context.l10n.dose,
+                                      style: context.theme.textTheme.titleLarge,
                                     ),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      TextButton(
-                                          onPressed: () {
-                                            context.maybePop();
-                                          },
-                                          child: Text(context.l10n.cancel)),
-                                      TextButton(
-                                          onPressed: () {
-                                            context.maybePop();
-                                          },
-                                          child: Text(context.l10n.ok)),
-                                    ],
-                                  ),
-                                ],
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    const TextField(
+                                      decoration: InputDecoration(
+                                        border: UnderlineInputBorder(),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        TextButton(
+                                            onPressed: () {
+                                              context.maybePop();
+                                            },
+                                            child: Text(context.l10n.cancel)),
+                                        TextButton(
+                                            onPressed: () {
+                                              context.maybePop();
+                                            },
+                                            child: Text(context.l10n.ok)),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );
@@ -97,7 +97,6 @@ class TreatmentTimePage extends StatelessWidget {
                     },
                     onTimeChange: (value) {},
                   ),
-
                 ],
               ),
             ),

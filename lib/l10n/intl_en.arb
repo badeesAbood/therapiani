@@ -18,5 +18,9 @@
   "dose": "Dose" ,
   "cancel": "Cancel" ,
   "ok" : "OK" ,
-  "remindMe": "remindMe"
+  "remindMe": "remindMe" ,
+  "charts": "Charts" ,
+  "list" : "List" ,
+  "oneTimeEntry" : "One-time entry" ,
+  "last7days" : "last 7 Days"
 }
