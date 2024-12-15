@@ -16,16 +16,18 @@ class _ToDoWidget extends StatelessWidget {
                 decoration: const BoxDecoration(color: Colors.grey),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Icon(Icons.close_rounded),
-                      Text(
-                        context.l10n.skip,
-                        style: context.theme.textTheme.labelSmall,
-                      )
-                    ],
+                  child: Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.close_rounded),
+                        Text(
+                          context.l10n.skip,
+                          style: context.theme.textTheme.labelSmall,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -37,16 +39,18 @@ class _ToDoWidget extends StatelessWidget {
                   decoration: BoxDecoration(color: Colors.greenAccent),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Icon(Icons.check_circle),
-                        Text(
-                          context.l10n.confirm,
-                          style: context.theme.textTheme.labelSmall,
-                        )
-                      ],
+                    child: Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.check_circle),
+                          Text(
+                            context.l10n.confirm,
+                            style: context.theme.textTheme.labelSmall,
+                          )
+                        ],
+                      ),
                     ),
                   )),
             ),

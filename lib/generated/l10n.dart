@@ -230,10 +230,10 @@ class S {
     );
   }
 
-  /// `remindMe`
+  /// `Remind me`
   String get remindMe {
     return Intl.message(
-      'remindMe',
+      'Remind me',
       name: 'remindMe',
       desc: '',
       args: [],
@@ -295,6 +295,76 @@ class S {
     return Intl.message(
       'Confirm',
       name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current inventory`
+  String get currentInventory {
+    return Intl.message(
+      'Current inventory',
+      name: 'currentInventory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get amount {
+    return Intl.message(
+      'Amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remind me when :`
+  String get remindMeWhen {
+    return Intl.message(
+      'Remind me when :',
+      name: 'remindMeWhen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Threshold`
+  String get threshold {
+    return Intl.message(
+      'Threshold',
+      name: 'threshold',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show dose`
+  String get showDose {
+    return Intl.message(
+      'Show dose',
+      name: 'showDose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hide`
+  String get hide {
+    return Intl.message(
+      'Hide',
+      name: 'hide',
       desc: '',
       args: [],
     );

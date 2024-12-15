@@ -16,61 +16,59 @@ class TreatmentIntervalPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(child: Assets.animations.treatAdd.lottie(height: 100)),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Treat name',
-              style: context.theme.textTheme.labelMedium,
-            ),
-            Text(
-              context.l10n.treatmentIntervalQuery,
-              style: context.theme.textTheme.titleLarge,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            IntervalSelect(
-              value: 'Once Daily',
-              selectedOption: 'Once Daily',
-              onTap: (value) {},
-            ),
-            IntervalSelect(
-              value: 'Twice Daily',
-              selectedOption: 'Once Daily',
-              onTap: (value) {},
-            ),
-            IntervalSelect(
-              value: 'On demand',
-              selectedOption: 'Once Daily',
-              onTap: (value) {},
-            ),
-            IntervalSelect(
-              value: 'I nedd more options',
-              selectedOption: 'Once Daily',
-              onTap: (value) {},
-            ),
-            const Spacer(),
-            FilledButton(
-                style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 40),
-                    shape: const RoundedRectangleBorder()),
-                onPressed: () {
-                  context.pushRoute(const TreatmentTimeMoreRoute());
-                },
-                child: Text(context.l10n.next))
-          ],
+    return  Material(
+      child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(child: Assets.animations.treatAdd.lottie(height: 100)),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Treat name',
+                style: context.theme.textTheme.labelMedium,
+              ),
+              Text(
+                context.l10n.treatmentIntervalQuery,
+                style: context.theme.textTheme.titleLarge,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              IntervalSelect(
+                value: 'Once Daily',
+                selectedOption: 'Once Daily',
+                onTap: (value) {},
+              ),
+              IntervalSelect(
+                value: 'Twice Daily',
+                selectedOption: 'Once Daily',
+                onTap: (value) {},
+              ),
+              IntervalSelect(
+                value: 'On demand',
+                selectedOption: 'Once Daily',
+                onTap: (value) {},
+              ),
+              IntervalSelect(
+                value: 'I nedd more options',
+                selectedOption: 'Once Daily',
+                onTap: (value) {},
+              ),
+              const Spacer(),
+              FilledButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 40),
+                      shape: const RoundedRectangleBorder()),
+                  onPressed: () {
+                    context.pushRoute(const TreatmentTimeMoreRoute());
+                  },
+                  child: Text(context.l10n.next))
+            ],
+          ),
         ),
-      ),
     );
   }
 }

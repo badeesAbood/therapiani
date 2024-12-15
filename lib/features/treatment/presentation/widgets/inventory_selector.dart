@@ -1,17 +1,17 @@
 part of '../pages/treatment_inventory_page.dart';
 
-class InventorySelector extends StatefulWidget {
-  const InventorySelector(
+class _InventoryRemindMeButton extends StatefulWidget {
+  const _InventoryRemindMeButton(
       {required this.onChange, required this.label, super.key});
 
   final void Function() onChange;
   final String label;
 
   @override
-  State<InventorySelector> createState() => _InventorySelectorState();
+  State<_InventoryRemindMeButton> createState() => _InventoryRemindMeButtonState();
 }
 
-class _InventorySelectorState extends State<InventorySelector> {
+class _InventoryRemindMeButtonState extends State<_InventoryRemindMeButton> {
   bool value = false;
 
   @override

@@ -17,76 +17,71 @@ class TreatmentAddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String choice = _units.first;
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () => context.maybePop(), icon: const Icon(Icons.close)),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Assets.animations.treatAdd.lottie(height: 100),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              context.l10n.medicationQuery,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                  border: UnderlineInputBorder(), hintText: context.l10n.name),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  context.l10n.unit,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                  value: choice,
-                  items: _units.map<DropdownMenuItem<String>>(
-                    (e) {
-                      return DropdownMenuItem<String>(
-                        value: e,
-                        child: Text(e),
-                      );
+    return Material(
+      child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Assets.animations.treatAdd.lottie(height: 100),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                context.l10n.medicationQuery,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                    border: UnderlineInputBorder(), hintText: context.l10n.name),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    context.l10n.unit,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                    value: choice,
+                    items: _units.map<DropdownMenuItem<String>>(
+                      (e) {
+                        return DropdownMenuItem<String>(
+                          value: e,
+                          child: Text(e),
+                        );
+                      },
+                    ).toList(),
+                    onChanged: (value) {
+                      choice = value!;
                     },
-                  ).toList(),
-                  onChanged: (value) {
-                    choice = value!;
-                  },
-                ))
-              ],
-            ),
-            const Spacer(),
-            BlocBuilder<ProgressViewBloc, double>(
-              buildWhen: (previous, current) => current != previous,
-              builder: (context, state) {
-                return FilledButton(
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(double.infinity, 40),
-                        shape: const RoundedRectangleBorder()),
-                    onPressed: () {
-                      context.pushRoute(const TreatmentIntervalRoute());
-                    },
-                    child: Text(context.l10n.next));
-              },
-            ),
-          ],
+                  ))
+                ],
+              ),
+              const Spacer(),
+              BlocBuilder<ProgressViewBloc, double>(
+                buildWhen: (previous, current) => current != previous,
+                builder: (context, state) {
+                  return FilledButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 40),
+                          shape: const RoundedRectangleBorder()),
+                      onPressed: () {
+                        context.pushRoute(const TreatmentIntervalRoute());
+                      },
+                      child: Text(context.l10n.next));
+                },
+              ),
+            ],
+          ),
         ),
-      ),
     );
   }
 

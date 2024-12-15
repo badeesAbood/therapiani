@@ -22,13 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addReminder": MessageLookupByLibrary.simpleMessage("Add reminder "),
+        "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "charts": MessageLookupByLibrary.simpleMessage("Charts"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "currentInventory":
+            MessageLookupByLibrary.simpleMessage("Current inventory"),
         "dose": MessageLookupByLibrary.simpleMessage("Dose"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
+        "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "last7days": MessageLookupByLibrary.simpleMessage("last 7 Days"),
         "list": MessageLookupByLibrary.simpleMessage("List"),
         "login": MessageLookupByLibrary.simpleMessage("Log in"),
@@ -39,9 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "oneTimeEntry": MessageLookupByLibrary.simpleMessage("One-time entry"),
         "progress": MessageLookupByLibrary.simpleMessage("Progress"),
-        "remindMe": MessageLookupByLibrary.simpleMessage("remindMe"),
+        "remindMe": MessageLookupByLibrary.simpleMessage("Remind me"),
+        "remindMeWhen":
+            MessageLookupByLibrary.simpleMessage("Remind me when :"),
+        "showDose": MessageLookupByLibrary.simpleMessage("Show dose"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
+        "threshold": MessageLookupByLibrary.simpleMessage("Threshold"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),
         "todo": MessageLookupByLibrary.simpleMessage("Today"),
         "treatment": MessageLookupByLibrary.simpleMessage("Treatment"),

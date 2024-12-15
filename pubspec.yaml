@@ -19,10 +19,16 @@ dependencies:
   flutter_svg: ^2.0.12
   lottie: ^3.1.3
   font_awesome_flutter: ^10.8.0
-  json_serializable: ^6.8.0
+  json_serializable: ^6.9.0
   json_annotation: ^4.9.0
   swipeable_page_route: ^0.4.4
   flutter_slidable: ^3.1.1
+  sqflite: ^2.4.1
+  injectable: ^2.5.0
+  get_it: ^8.0.2
+  dio: ^5.7.0
+  dartz: ^0.10.1
+  freezed_annotation: ^2.4.4
 
 dev_dependencies:
   auto_route_generator: 9.0.0
@@ -33,6 +39,7 @@ dev_dependencies:
   very_good_analysis: ^6.0.0
   flutter_gen_runner:
   build_runner:
+  freezed: ^2.5.7
 
 flutter:
   uses-material-design: true
