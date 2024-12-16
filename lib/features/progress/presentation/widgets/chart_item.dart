@@ -1,14 +1,23 @@
 part of '../pages/progress_charts_page.dart';
 
-class ChartItem extends StatelessWidget {
+class ChartItem extends StatefulWidget {
   const ChartItem({required this.medName, super.key});
 
   final String medName;
 
   @override
+  State<ChartItem> createState() => _ChartItemState();
+}
+
+class _ChartItemState extends State<ChartItem> {
+  bool showDose = false;
+
+  bool hide = false;
+
+  @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(),
+      shape: const RoundedRectangleBorder(),
       color: context.theme.colorScheme.surfaceContainerHighest,
       child: Padding(
         padding: const EdgeInsets.all(15),
@@ -18,23 +27,40 @@ class ChartItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  medName,
+                  widget.medName,
                   style: context.theme.textTheme.labelLarge,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
-                Text(context.l10n.last7days , style: context.theme.textTheme.labelSmall,),
+                Text(
+                  context.l10n.last7days,
+                  style: context.theme.textTheme.labelSmall,
+                ),
                 const Spacer(),
-               InkWell(
-                 onTap: () {
-
-                 },
-                 child: const Icon(Icons.more_vert),
-               )
+                PopupMenuButton(
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      child: Text(context.l10n.hide),
+                      onTap: () {
+                        setState(() {
+                          hide = !hide;
+                        });
+                      },
+                    ),
+                    PopupMenuItem(
+                      child: Text(context.l10n.showDose),
+                      onTap: () {
+                        showDose = !showDose;
+                      },
+                    ),
+                  ],
+                )
               ],
             ),
-            SizedBox(height: 20,) ,
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -78,10 +104,16 @@ class _DayOfWeek extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          label,
-          style: context.theme.textTheme.labelSmall,
-        ),
+        if (isCurrentDay)
+          Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              color: context.theme.primaryColor,
+              child: Text(label, style: context.theme.textTheme.labelSmall))
+        else
+          Text(
+            label,
+            style: context.theme.textTheme.labelSmall,
+          ),
         const SizedBox(
           height: 5,
         ),
@@ -89,18 +121,18 @@ class _DayOfWeek extends StatelessWidget {
           Container(
             width: 30,
             height: 30,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Colors.greenAccent, shape: BoxShape.circle),
-            child: Icon(Icons.check),
+            child: const Icon(Icons.check),
           )
         else
           isSkipped
               ? Container(
                   width: 30,
                   height: 30,
-                  decoration:
-                      BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
-                  child: Icon(
+                  decoration: const BoxDecoration(
+                      color: Colors.grey, shape: BoxShape.circle),
+                  child: const Icon(
                     Icons.close,
                     size: 15,
                   ),
@@ -112,7 +144,7 @@ class _DayOfWeek extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: context.theme.primaryColor),
                           shape: BoxShape.circle),
-                      child: Icon(
+                      child: const Icon(
                         Icons.circle,
                         size: 10,
                       ),
@@ -120,7 +152,7 @@ class _DayOfWeek extends StatelessWidget {
                   : Container(
                       width: 30,
                       height: 30,
-                      child: Icon(
+                      child: const Icon(
                         Icons.circle,
                         size: 10,
                       ),

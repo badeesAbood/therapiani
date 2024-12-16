@@ -18,9 +18,18 @@
   "dose": "Dose" ,
   "cancel": "Cancel" ,
   "ok" : "OK" ,
-  "remindMe": "remindMe" ,
+  "remindMe": "Remind me" ,
   "charts": "Charts" ,
   "list" : "List" ,
   "oneTimeEntry" : "One-time entry" ,
-  "last7days" : "last 7 Days"
+  "last7days" : "last 7 Days",
+  "skip": "Skip" ,
+  "confirm" : "Confirm" ,
+  "currentInventory": "Current inventory",
+  "amount": "Amount" ,
+  "remindMeWhen" : "Remind me when :",
+  "threshold" : "Threshold" ,
+  "add" : "Add" ,
+  "showDose" : "Show dose" ,
+  "hide": "Hide"
 }

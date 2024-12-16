@@ -37,6 +37,7 @@ class AppRouter extends RootStackRouter {
               page: TreatmentTimeRoute.page,
             ),
             CustomRoute(
+
               customRouteBuilder: customBuilder,
               page: TreatmentInventoryRoute.page,
             ),
@@ -51,6 +52,7 @@ Route<T> customBuilder<T>(
   AutoRoutePage<T> page,
 ) =>
     PageRouteBuilder<T>(
+      transitionDuration: const Duration(milliseconds: 900),
       fullscreenDialog: page.fullscreenDialog,
       settings: page,
       pageBuilder: (context, animation, secondaryAnimation) => child,
@@ -58,22 +60,29 @@ Route<T> customBuilder<T>(
         BuildContext context,
         Animation<double> animation,
         Animation<double> secondaryAnimation,
-        Widget oldChild,
+        Widget disposed,
       ) {
+        final _oldPage = context.router.current.buildPage().child ;
+        final _animation =
+            CurvedAnimation(parent: animation, curve: Curves.easeInOut);
         return Stack(
           children: <Widget>[
+
+            // slide out
             SlideTransition(
                 position: Tween<Offset>(
                   begin: Offset.zero,
                   end: const Offset(-1, 0),
-                ).animate(animation),
-                child: child),
+                ).animate(_animation),
+                child: _oldPage),
+
+            // slide in
             SlideTransition(
                 position: Tween<Offset>(
                   begin: const Offset(1, 0),
                   end: Offset.zero,
-                ).animate(animation),
-                child: oldChild)
+                ).animate(_animation),
+                child: child),
           ],
         );
       },
