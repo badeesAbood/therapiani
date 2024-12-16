@@ -1,10 +1,10 @@
-import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_app/core/services/network_service/failure/failure.dart';
+import 'package:my_app/core/repositories/core_repository.dart';
 import 'package:my_app/features/treatment/data/data_sources/remote_data_source/remote_data_source.dart';
 import 'package:my_app/features/treatment/domain/entities/treatment_entity.dart';
 import 'package:my_app/features/treatment/domain/entities/treatment_list_entity.dart';
 import 'package:my_app/features/treatment/domain/repositories/treatment_repo.dart';
+
 
 @Injectable(as: TreatmentRepository)
 class TreatmentRepositoryImp extends TreatmentRepository {
@@ -14,29 +14,29 @@ class TreatmentRepositoryImp extends TreatmentRepository {
   final RemoteDataSource _dataSource;
 
   @override
-  Future<Either<Failure, TreatmentEntity>> addTreatment(
-      {required TreatmentEntity treatment}) async {
-    return repoCallBack<TreatmentEntity>(
+  RepoResponse<TreatmentEntity> addTreatment(
+      {required TreatmentEntity treatment,}) async {
+    return repoCallBack(
       () => _dataSource.addTreatment(treatment: treatment),
     );
   }
 
   @override
-  Future<Either<Failure, String>> deleteTreatment({required int id}) {
-    return repoCallBack<String>(
+  RepoResponse<String> deleteTreatment({required int id}) {
+    return repoCallBack(
       () => _dataSource.deleteTreatment(id: id),
     );
   }
 
   @override
-  Future<Either<Failure, TreatmentListEntity>> fetchTreatments() {
-    return repoCallBack<TreatmentListEntity>(
+  RepoResponse<TreatmentListEntity> fetchTreatments() {
+    return repoCallBack(
       _dataSource.fetchTreatments,
     );
   }
 
   @override
-  Future<Either<Failure, TreatmentEntity>> updateTreatment(
+  RepoResponse<TreatmentEntity> updateTreatment(
       {required TreatmentEntity treatment}) {
     return repoCallBack(
       () => _dataSource.updateTreatment(treatment: treatment),

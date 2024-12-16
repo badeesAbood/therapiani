@@ -1,12 +1,12 @@
-import 'package:json_annotation/json_annotation.dart';
 
 import 'package:my_app/core/entity/base_entity.dart';
-
+import 'package:my_app/core/entity/entity.dart';
 
 abstract class TreatmentEntity extends BaseEntity<TreatmentEntity> {
   TreatmentEntity(
       {required this.name,
       required this.dose,
+      required this.inventoryList,
       required this.description,
       required this.frequency,
       required this.startAt,
@@ -24,5 +24,5 @@ abstract class TreatmentEntity extends BaseEntity<TreatmentEntity> {
 
   final DateTime endAt;
 
-
+  final InventoryListEntity inventoryList;
 }

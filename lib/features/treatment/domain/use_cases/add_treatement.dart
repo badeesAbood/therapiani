@@ -8,7 +8,7 @@ import 'package:my_app/features/treatment/domain/repositories/treatment_repo.dar
 class AddTreatmentUsecase {
   AddTreatmentUsecase({required TreatmentRepository repo}) : _repo = repo;
 
-  late final TreatmentRepository _repo;
+  final TreatmentRepository _repo;
 
   Future<Either<Failure, TreatmentEntity>> call(
       {required TreatmentEntity treatment}) async {

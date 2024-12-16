@@ -9,10 +9,11 @@ import 'package:my_app/core/services/network_service/exception/network_exception
 import 'package:my_app/core/services/network_service/failure/failure.dart';
 import 'package:my_app/core/services/network_service/failure/network_failure.dart';
 
+typedef RepoResponse<T> = Future<Either<Failure, T>>;
+
+
 class CoreRepository {
-
-
-  Future<Either<Failure ,T>> repoCallBack<T>(Future<T> Function() action) async {
+  RepoResponse<T> repoCallBack<T>(Future<T> Function() action) async {
     try {
       final result = await action() ;
       return Right(result) ;

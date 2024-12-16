@@ -14,6 +14,7 @@ class TreatmentListModel extends TreatmentListEntity {
   @override
   final List<TreatmentModel> treatments ;
 
+
   @override
   TreatmentListEntity fromJson(Map<String, dynamic> json) =>
       _$TreatmentListModelFromJson(json);
