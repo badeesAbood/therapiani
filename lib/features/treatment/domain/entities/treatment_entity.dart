@@ -1,5 +1,4 @@
 
-import 'package:my_app/core/entity/base_entity.dart';
 import 'package:my_app/core/entity/entity.dart';
 
 abstract class TreatmentEntity extends BaseEntity<TreatmentEntity> {

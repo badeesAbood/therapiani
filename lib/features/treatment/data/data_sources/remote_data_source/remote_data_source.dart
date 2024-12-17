@@ -12,7 +12,7 @@ class RemoteDataSource {
   final DioClient _client;
 
   Future<TreatmentEntity> addTreatment(
-      {required TreatmentEntity treatment}) async {
+      {required Map<String, dynamic> data}) async {
     try {
       final result = await _client.request<TreatmentEntity>(
           url: 'some/some',
@@ -43,7 +43,7 @@ class RemoteDataSource {
   }
 
   Future<TreatmentEntity> updateTreatment(
-      {required TreatmentEntity treatment}) async {
+      {required Map<String, dynamic> data}) async {
     try {
       final result = await _client.request<TreatmentModel>(
           url: '',
