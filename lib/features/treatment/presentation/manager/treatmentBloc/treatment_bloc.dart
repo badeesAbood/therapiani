@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_entity.dart';
+import 'package:my_app/features/treatment/data/models/usecases_models/usecase_requsts.dart';
 import 'package:my_app/features/treatment/domain/use_cases/add_treatement.dart';
 import 'package:my_app/features/treatment/domain/use_cases/delete_treatment.dart';
 import 'package:my_app/features/treatment/domain/use_cases/fetch_treatments_usecase.dart';
@@ -34,18 +34,19 @@ class TreatmentCubit extends Cubit<TreatmentState> {
     );
   }
 
-  Future<void> addTreatment({required TreatmentEntity treatment}) async {
+  Future<void> addTreatment({required CreateTreatmentModel treatment}) async {
     emit(TreatmentState.addLoading());
-    final result = await _addTreatmentUsecase(treatment: treatment);
+    final result = await _addTreatmentUsecase(treatment);
     result.fold(
       (l) => emit(TreatmentState.addFailed(message: l.message)),
       (r) => TreatmentState.addSuccess(treatment: r),
     );
   }
 
-  Future<void> updateTreatment({required TreatmentEntity treatment}) async {
+  Future<void> updateTreatment(
+      {required UpdateTreatmentModel treatment}) async {
     emit(TreatmentState.updateLoading());
-    final result = await _updateTreatmentUsecase(treatment: treatment);
+    final result = await _updateTreatmentUsecase(treatment);
     result.fold(
       (l) => emit(TreatmentState.updateFailed(message: l.message)),
       (r) => emit(TreatmentState.updateSuccess(treatment: r)),
