@@ -2,8 +2,8 @@
 
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_app/core/entity/entity.dart';
-import 'package:my_app/core/models/inventory_model.dart';
+import 'package:therapiani/core/entity/entity.dart';
+import 'package:therapiani/core/models/inventory_model.dart';
 
 part 'inventory_list_model.g.dart';
 

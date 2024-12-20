@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_entity.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_list_entity.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_entity.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_list_entity.dart';
 
 part 'treatment_state.freezed.dart';
 

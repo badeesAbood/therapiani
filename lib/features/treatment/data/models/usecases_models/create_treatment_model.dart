@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_app/features/treatment/data/models/usecases_models/usecase_requsts.dart';
+import 'package:therapiani/features/treatment/data/models/usecases_models/usecase_requsts.dart';
 
 
 part 'create_treatment_model.g.dart';

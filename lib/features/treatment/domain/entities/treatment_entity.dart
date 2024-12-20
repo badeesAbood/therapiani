@@ -1,7 +1,7 @@
 
-import 'package:my_app/core/entity/entity.dart';
+import 'package:therapiani/core/entity/entity.dart';
 
-abstract class TreatmentEntity extends BaseEntity<TreatmentEntity> {
+abstract class TreatmentEntity extends BaseEntity {
   TreatmentEntity(
       {required this.name,
       required this.dose,

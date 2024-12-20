@@ -1,5 +1,5 @@
-import 'package:my_app/app/entry.dart';
-import 'package:my_app/bootstrap.dart';
+import 'package:therapiani/app/entry.dart';
+import 'package:therapiani/bootstrap.dart';
 
 void main() {
   bootstrap(() =>  Entry());

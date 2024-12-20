@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/app/services/router.gr.dart';
+import 'package:therapiani/app/services/router.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {

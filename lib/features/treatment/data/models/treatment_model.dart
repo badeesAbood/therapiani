@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:my_app/core/models/inventory_list_model.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_entity.dart';
+import 'package:therapiani/core/models/inventory_list_model.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_entity.dart';
 
 part 'treatment_model.g.dart';
 

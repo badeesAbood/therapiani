@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/features/home/presentation/widgets/home_app_bar.dart';
+import 'package:therapiani/features/home/presentation/widgets/home_app_bar.dart';
 
 class AuthintecatedScaffold extends StatelessWidget {
   const AuthintecatedScaffold(

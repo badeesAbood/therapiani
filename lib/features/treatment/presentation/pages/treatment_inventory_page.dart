@@ -1,10 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/app/extensions/dialog_extension.dart';
-import 'package:my_app/app/services/assets.gen.dart';
-import 'package:my_app/app/services/theme.dart';
-import 'package:my_app/l10n/l10n.dart';
+import 'package:therapiani/app/extensions/dialog_extension.dart';
+import 'package:therapiani/app/services/assets.gen.dart';
+import 'package:therapiani/app/services/theme.dart';
+import 'package:therapiani/l10n/l10n.dart';
 
 part '../widgets/inventory_selector.dart';
 

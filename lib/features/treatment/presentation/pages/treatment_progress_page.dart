@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app/features/treatment/presentation/manager/progress_view_bloc/progress_view_bloc.dart';
-import 'package:my_app/features/treatment/presentation/pages/treatment_router_observer/treatment_router_observer.dart';
+import 'package:therapiani/features/treatment/presentation/manager/progress_view_bloc/progress_view_bloc.dart';
+import 'package:therapiani/features/treatment/presentation/pages/treatment_router_observer/treatment_router_observer.dart';
 
 @RoutePage()
 class TreatmentProgressPage extends StatefulWidget {

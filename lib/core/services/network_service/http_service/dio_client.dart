@@ -1,27 +1,26 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_app/core/services/network_service/exception/network_exceptions.dart';
-import 'package:my_app/core/services/network_service/http_service/http_client.dart';
-import 'package:my_app/core/services/network_service/http_service/http_helper.dart';
-
-typedef ResponseCreator<T> = T Function(Map<String, dynamic>);
+import 'package:therapiani/core/entity/base_entity.dart';
+import 'package:therapiani/core/services/network_service/exception/network_exceptions.dart';
+import 'package:therapiani/core/services/network_service/exception/services_exceptions.dart';
+import 'package:therapiani/core/services/network_service/http_service/http_client.dart';
+import 'package:therapiani/core/services/network_service/http_service/http_helper.dart';
+import 'package:therapiani/core/utils/converters/json_converter.dart';
 
 @Singleton(as: HttpClient)
 class DioClient extends HttpClient {
-
   DioClient()
       : _dio = Dio(BaseOptions(
-    baseUrl: 'https://api.pub.dev', // Replace this with dynamic fetching if necessary
-    connectTimeout: const Duration(seconds: 20),
-    receiveTimeout: const Duration(seconds: 20),
-  ));
-
+          baseUrl: 'https://api.pub.dev',
+          // Replace this with dynamic fetching if necessary
+          connectTimeout: const Duration(seconds: 20),
+          receiveTimeout: const Duration(seconds: 20),
+        ));
 
   final Dio _dio;
 
-  Future<T> request<T>({
+  Future<T> request<T extends BaseEntity>({
     required String url,
-    required ResponseCreator<T> creator,
     required Method method,
     required Map<String, String> headers,
     Map<String, dynamic>? data,
@@ -30,8 +29,7 @@ class DioClient extends HttpClient {
   }) async {
     try {
       if (mockResponse != null) {
-        // Simulate response for mock scenarios
-        return creator(mockResponse);
+        return jsonConverter<T>(mockResponse) as T ;
       }
 
       final response = await _dio.request<String>(
@@ -51,23 +49,45 @@ class DioClient extends HttpClient {
         );
       }
 
-      return creator(response.data! as Map<String, dynamic>);
+      return jsonConverter<T>(response.data! as Map<String, dynamic>) as T;
     } on DioException catch (e) {
-      throw _handleDioException(e);
+      if(e.response!.statusCode == 401) {
+        throw UnauthorizedException();
+      }else {
+        throw _handleDioException(e);
+      }
+    } on Exception catch (e) {
+      throw _handleServiceException(e);
     }
   }
 
   Exception _handleDioException(DioException e) {
     switch (e.type) {
+      case DioExceptionType.badResponse:
+        return InvalidResponseException(e.response!.statusCode!);
       case DioExceptionType.connectionTimeout:
         return ConnectionTimeoutException();
       case DioExceptionType.receiveTimeout:
       case DioExceptionType.sendTimeout:
-      return ConnectionTimeoutException();
+        return ConnectionTimeoutException();
       case DioExceptionType.cancel:
         return Exception('Request cancelled');
       default:
         return UnexpectedException(e.message ?? 'Unknown exception');
     }
   }
+
+
+  Exception _handleServiceException(Exception e){
+    switch(e.runtimeType){
+      case TypeError:
+        return JsonConversionException();
+      case UnexpectedException:
+        return UnexpectedException(e.toString());
+      default:
+        return UnexpectedException(e.toString());
+    }
+  }
 }
+
+

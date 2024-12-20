@@ -10,32 +10,32 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i15;
 import 'package:flutter/material.dart' as _i16;
-import 'package:my_app/features/home/presentation/pages/home.dart' as _i1;
-import 'package:my_app/features/initial/welcome/presentation/pages/welcome_page.dart'
+import 'package:therapiani/features/home/presentation/pages/home.dart' as _i1;
+import 'package:therapiani/features/initial/welcome/presentation/pages/welcome_page.dart'
     as _i14;
-import 'package:my_app/features/progress/presentation/pages/progress_charts_page.dart'
+import 'package:therapiani/features/progress/presentation/pages/progress_charts_page.dart'
     as _i2;
-import 'package:my_app/features/progress/presentation/pages/progress_list_page.dart'
+import 'package:therapiani/features/progress/presentation/pages/progress_list_page.dart'
     as _i3;
-import 'package:my_app/features/progress/presentation/pages/progress_page.dart'
+import 'package:therapiani/features/progress/presentation/pages/progress_page.dart'
     as _i4;
-import 'package:my_app/features/support/presentation/pages/support_page.dart'
+import 'package:therapiani/features/support/presentation/pages/support_page.dart'
     as _i5;
-import 'package:my_app/features/today/presentation/pages/today_page.dart'
+import 'package:therapiani/features/today/presentation/pages/today_page.dart'
     as _i6;
-import 'package:my_app/features/treatment/presentation/pages/treatment_add_page.dart'
+import 'package:therapiani/features/treatment/presentation/pages/treatment_add_page.dart'
     as _i7;
-import 'package:my_app/features/treatment/presentation/pages/treatment_interval_page.dart'
+import 'package:therapiani/features/treatment/presentation/pages/treatment_interval_page.dart'
     as _i8;
-import 'package:my_app/features/treatment/presentation/pages/treatment_inventory_page.dart'
+import 'package:therapiani/features/treatment/presentation/pages/treatment_inventory_page.dart'
     as _i9;
-import 'package:my_app/features/treatment/presentation/pages/treatment_page.dart'
+import 'package:therapiani/features/treatment/presentation/pages/treatment_page.dart'
     as _i10;
-import 'package:my_app/features/treatment/presentation/pages/treatment_progress_page.dart'
+import 'package:therapiani/features/treatment/presentation/pages/treatment_progress_page.dart'
     as _i11;
-import 'package:my_app/features/treatment/presentation/pages/treatment_time_more_page.dart'
+import 'package:therapiani/features/treatment/presentation/pages/treatment_time_more_page.dart'
     as _i12;
-import 'package:my_app/features/treatment/presentation/pages/treatment_time_page.dart'
+import 'package:therapiani/features/treatment/presentation/pages/treatment_time_page.dart'
     as _i13;
 
 /// generated route for

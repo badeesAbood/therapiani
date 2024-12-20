@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_app/core/services/network_service/failure/failure.dart';
-import 'package:my_app/features/treatment/data/models/usecases_models/update_treatment_model.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_entity.dart';
-import 'package:my_app/features/treatment/domain/repositories/treatment_repo.dart';
+import 'package:therapiani/core/services/network_service/failure/failure.dart';
+import 'package:therapiani/features/treatment/data/models/usecases_models/update_treatment_model.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_entity.dart';
+import 'package:therapiani/features/treatment/domain/repositories/treatment_repo.dart';
 
 @Injectable()
 class UpdateTreatmentUsecase {
