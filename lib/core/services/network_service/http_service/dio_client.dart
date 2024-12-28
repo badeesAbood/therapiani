@@ -1,23 +1,48 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:therapiani/core/entity/base_entity.dart';
+import 'package:therapiani/core/repositories/auth_repo/auth_repo.dart';
 import 'package:therapiani/core/services/network_service/exception/network_exceptions.dart';
 import 'package:therapiani/core/services/network_service/exception/services_exceptions.dart';
 import 'package:therapiani/core/services/network_service/http_service/http_client.dart';
 import 'package:therapiani/core/services/network_service/http_service/http_helper.dart';
 import 'package:therapiani/core/utils/converters/json_converter.dart';
+import 'package:therapiani/di.dart';
 
-@Singleton(as: HttpClient)
-class DioClient extends HttpClient {
-  DioClient()
-      : _dio = Dio(BaseOptions(
-          baseUrl: 'https://api.pub.dev',
-          // Replace this with dynamic fetching if necessary
-          connectTimeout: const Duration(seconds: 20),
-          receiveTimeout: const Duration(seconds: 20),
-        ));
+@Injectable(as: HttpClient)
+class DioClient implements HttpClient {
+  DioClient() {
+    initHttpClient();
+  }
 
-  final Dio _dio;
+  late final Dio _dio;
+
+  @override
+  Future<void> initHttpClient() async {
+    final auth = getIt.get<AuthRepository>()..init(_dio);
+
+    _dio = Dio(BaseOptions(
+      baseUrl: 'https://api.pub.dev',
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout: const Duration(seconds: 20),
+    ));
+
+    _dio.interceptors.add(InterceptorsWrapper(
+      onRequest: (options, handler) {
+        // Do something before request is sent
+        return handler.next(options); //continue
+      },
+      onResponse: (response, handler) {
+        return handler.next(response); // continue
+      },
+      onError: (DioException e, handler) {
+        if (e.response!.statusCode == 401) {
+          auth.refreshToken();
+        }
+        return handler.next(e); //continue
+      },
+    ));
+  }
 
   Future<T> request<T extends BaseEntity>({
     required String url,
@@ -29,7 +54,7 @@ class DioClient extends HttpClient {
   }) async {
     try {
       if (mockResponse != null) {
-        return jsonConverter<T>(mockResponse) as T ;
+        return jsonConverter<T>(mockResponse) as T;
       }
 
       final response = await _dio.request<String>(
@@ -51,9 +76,9 @@ class DioClient extends HttpClient {
 
       return jsonConverter<T>(response.data! as Map<String, dynamic>) as T;
     } on DioException catch (e) {
-      if(e.response!.statusCode == 401) {
+      if (e.response!.statusCode == 401) {
         throw UnauthorizedException();
-      }else {
+      } else {
         throw _handleDioException(e);
       }
     } on Exception catch (e) {
@@ -77,9 +102,8 @@ class DioClient extends HttpClient {
     }
   }
 
-
-  Exception _handleServiceException(Exception e){
-    switch(e.runtimeType){
+  Exception _handleServiceException(Exception e) {
+    switch (e.runtimeType) {
       case TypeError:
         return JsonConversionException();
       case UnexpectedException:
@@ -89,5 +113,3 @@ class DioClient extends HttpClient {
     }
   }
 }
-
-

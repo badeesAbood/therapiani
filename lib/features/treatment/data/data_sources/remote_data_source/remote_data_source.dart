@@ -9,7 +9,7 @@ import 'package:therapiani/features/treatment/domain/entities/treatment_list_ent
 
 @Injectable()
 class RemoteDataSource {
-  RemoteDataSource(DioClient client) : _client = client;
+  RemoteDataSource(this._client) ;
   final DioClient _client;
 
   Future<TreatmentEntity> addTreatment(

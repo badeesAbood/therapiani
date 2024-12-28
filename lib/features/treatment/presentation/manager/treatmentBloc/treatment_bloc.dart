@@ -9,11 +9,12 @@ import 'package:therapiani/features/treatment/presentation/manager/treatmentBloc
 
 @Injectable()
 class TreatmentCubit extends Cubit<TreatmentState> {
-  TreatmentCubit(super.initialState,
+  TreatmentCubit(
       {required AddTreatmentUsecase addUsecase,
       required FetchTreatmentsUseCase fetchUsecase,
       required UpdateTreatmentUsecase updateUsecase,
-      required DeleteTreatmentUseCase deleteUsecase}) {
+      required DeleteTreatmentUseCase deleteUsecase})
+      : super(TreatmentState.initial()) {
     _updateTreatmentUsecase = updateUsecase;
     _addTreatmentUsecase = addUsecase;
     _fetchTreatmentsUseCase = fetchUsecase;

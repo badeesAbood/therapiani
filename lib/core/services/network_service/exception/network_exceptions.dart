@@ -11,6 +11,11 @@ class UnauthorizedException extends NetworkException {
   UnauthorizedException() : super('Unauthorized');
 }
 
+class RefreshTokenException extends NetworkException {
+  RefreshTokenException() : super('Refresh token failed');
+}
+
+
 class ConnectionTimeoutException extends NetworkException {
   ConnectionTimeoutException() : super('Connection timed out');
 }

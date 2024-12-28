@@ -29,6 +29,8 @@ dependencies:
   dio: ^5.7.0
   dartz: ^0.10.1
   freezed_annotation: ^2.4.4
+  rxdart: ^0.28.0
+  shared_preferences: ^2.3.4
 
 dev_dependencies:
   auto_route_generator: 9.0.0
@@ -39,6 +41,7 @@ dev_dependencies:
   very_good_analysis: ^6.0.0
   flutter_gen_runner:
   build_runner:
+  injectable_generator:
   freezed: ^2.5.7
 
 flutter:

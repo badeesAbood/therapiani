@@ -35,3 +35,7 @@ class UnexpectedFailure extends Failure {
 class UnauthorizedFailure extends Failure {
   UnauthorizedFailure() : super(message: 'Unauthorized');
 }
+
+class NoUnreadMessagesFailure extends Failure {
+  NoUnreadMessagesFailure() : super(message: 'No unread messages');
+}
