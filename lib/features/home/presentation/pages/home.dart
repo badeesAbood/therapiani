@@ -2,10 +2,10 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_app/app/services/router.gr.dart';
-import 'package:my_app/features/home/presentation/widgets/authintecated_scaffold.dart';
-import 'package:my_app/features/home/presentation/widgets/home_app_bar.dart';
-import 'package:my_app/l10n/l10n.dart';
+import 'package:therapiani/app/services/router.gr.dart';
+import 'package:therapiani/features/home/presentation/widgets/authintecated_scaffold.dart';
+import 'package:therapiani/features/home/presentation/widgets/home_app_bar.dart';
+import 'package:therapiani/l10n/l10n.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {

@@ -1,14 +1,15 @@
 import 'package:injectable/injectable.dart';
-import 'package:my_app/core/services/network_service/http_service/dio_client.dart';
-import 'package:my_app/core/services/network_service/http_service/http_helper.dart';
-import 'package:my_app/features/treatment/data/models/treatmen_list_model.dart';
-import 'package:my_app/features/treatment/data/models/treatment_model.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_entity.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_list_entity.dart';
+import 'package:therapiani/core/models/string_response_model.dart';
+import 'package:therapiani/core/services/network_service/http_service/dio_client.dart';
+import 'package:therapiani/core/services/network_service/http_service/http_helper.dart';
+import 'package:therapiani/features/treatment/data/models/treatmen_list_model.dart';
+import 'package:therapiani/features/treatment/data/models/treatment_model.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_entity.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_list_entity.dart';
 
 @Injectable()
 class RemoteDataSource {
-  RemoteDataSource(DioClient client) : _client = client;
+  RemoteDataSource(this._client) ;
   final DioClient _client;
 
   Future<TreatmentEntity> addTreatment(
@@ -16,8 +17,8 @@ class RemoteDataSource {
     try {
       final result = await _client.request<TreatmentEntity>(
           url: 'some/some',
-          creator: TreatmentModel.fromJson,
           method: Method.POST,
+          data: data,
           headers: {});
 
       return result;
@@ -26,13 +27,10 @@ class RemoteDataSource {
     }
   }
 
-  Future<String> deleteTreatment({required int id}) async {
+  Future<StringResponseModel> deleteTreatment({required int id}) async {
     try {
-      final result = await _client.request<String>(
+      final result = await _client.request<StringResponseModel>(
           url: '',
-          creator: (p0) {
-            return p0['message'].toString();
-          },
           method: Method.DELETE,
           headers: {});
 
@@ -47,7 +45,6 @@ class RemoteDataSource {
     try {
       final result = await _client.request<TreatmentModel>(
           url: '',
-          creator: TreatmentModel.fromJson,
           method: Method.PUT,
           headers: {});
       return result;
@@ -60,10 +57,8 @@ class RemoteDataSource {
     try {
       final result = await _client.request<TreatmentListModel>(
           url: '',
-          creator: TreatmentListModel.fromJson,
           method: Method.GET,
           headers: {});
-
       return result;
     } catch (e) {
       rethrow;

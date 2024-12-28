@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentInventory":
             MessageLookupByLibrary.simpleMessage("Current inventory"),
         "dose": MessageLookupByLibrary.simpleMessage("Dose"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
@@ -43,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("next"),
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "oneTimeEntry": MessageLookupByLibrary.simpleMessage("One-time entry"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
         "progress": MessageLookupByLibrary.simpleMessage("Progress"),
         "remindMe": MessageLookupByLibrary.simpleMessage("Remind me"),
         "remindMeWhen":

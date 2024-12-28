@@ -1,0 +1,4 @@
+enum StorageConstants {
+  accessToken,
+  refreshToken,
+}

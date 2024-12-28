@@ -40,12 +40,16 @@ class $AssetsAnimationsGen {
 class $AssetsVectorsGen {
   const $AssetsVectorsGen();
 
+  /// File path: assets/vectors/login_head.svg
+  SvgGenImage get loginHead =>
+      const SvgGenImage('assets/vectors/login_head.svg');
+
   /// File path: assets/vectors/treatment_calendar.svg
   SvgGenImage get treatmentCalendar =>
       const SvgGenImage('assets/vectors/treatment_calendar.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [treatmentCalendar];
+  List<SvgGenImage> get values => [loginHead, treatmentCalendar];
 }
 
 class Assets {

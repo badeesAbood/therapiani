@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_app/app/services/router.gr.dart';
-import 'package:my_app/app/services/theme.dart';
-import 'package:my_app/l10n/l10n.dart';
+import 'package:therapiani/app/services/router.gr.dart';
+import 'package:therapiani/app/services/theme.dart';
+import 'package:therapiani/l10n/l10n.dart';
 
 part '../widgets/treatment_card.dart';
 

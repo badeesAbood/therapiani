@@ -4,9 +4,9 @@ import 'dart:math' as math;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_app/app/services/assets.gen.dart';
-import 'package:my_app/app/services/router.gr.dart';
-import 'package:my_app/l10n/l10n.dart';
+import 'package:therapiani/app/services/assets.gen.dart';
+import 'package:therapiani/app/services/router.gr.dart';
+import 'package:therapiani/l10n/l10n.dart';
 
 part '../widgets/animated_content.dart';
 
@@ -41,7 +41,11 @@ class _WelcomePageState extends State<WelcomePage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           actions: [
-            TextButton(onPressed: () {}, child: Text(context.l10n.login))
+            TextButton(
+                onPressed: () {
+                  context.pushRoute(const LoginRoute());
+                },
+                child: Text(context.l10n.login))
           ],
         ),
         body: Padding(
@@ -58,7 +62,7 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               FilledButton(
                 onPressed: () {
-                  context.pushRoute(HomeRoute()) ;
+                  context.pushRoute(HomeRoute());
                 },
                 style: ElevatedButton.styleFrom(
                   shape: const BeveledRectangleBorder(),
@@ -75,7 +79,7 @@ class _WelcomePageState extends State<WelcomePage> {
     timer = Timer.periodic(const Duration(seconds: 3), (timer) async {
       if (mounted) {
         setState(() {
-          if (index+1  == _welcomingList.length) {
+          if (index + 1 == _welcomingList.length) {
             index = 0;
           } else {
             index++;

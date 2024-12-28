@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_app/core/entity/entity.dart';
+import 'package:therapiani/core/entity/entity.dart';
 
 part 'inventory_model.g.dart';
 

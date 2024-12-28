@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_app/core/entity/base_entity.dart';
+import 'package:therapiani/core/entity/base_entity.dart';
 
-abstract class InventoryEntity extends BaseEntity<InventoryEntity> {
+abstract class InventoryEntity extends BaseEntity {
 
   InventoryEntity({required this.quantity, required this.threshold});
 

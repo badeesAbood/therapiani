@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:my_app/app/services/router.dart';
-import 'package:my_app/app/services/theme.dart';
-import 'package:my_app/l10n/l10n.dart';
+import 'package:therapiani/app/services/router.dart';
+import 'package:therapiani/app/services/theme.dart';
+import 'package:therapiani/l10n/l10n.dart';
 
 class Entry extends StatelessWidget {
    Entry({super.key});

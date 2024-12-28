@@ -1,12 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app/app/services/assets.gen.dart';
-import 'package:my_app/app/services/router.gr.dart';
-import 'package:my_app/app/services/theme.dart';
-import 'package:my_app/features/treatment/presentation/manager/progress_view_bloc/progress_view_bloc.dart';
-import 'package:my_app/l10n/l10n.dart';
+import 'package:therapiani/app/services/assets.gen.dart';
+import 'package:therapiani/app/services/router.gr.dart';
+import 'package:therapiani/app/services/theme.dart';
+import 'package:therapiani/l10n/l10n.dart';
 
 part '../widgets/interval_select.dart';
 

@@ -7,6 +7,14 @@ class NetworkException implements Exception {
   String toString() => message;
 }
 
+class UnauthorizedException extends NetworkException {
+  UnauthorizedException() : super('Unauthorized');
+}
+
+class RefreshTokenException extends NetworkException {
+  RefreshTokenException() : super('Refresh token failed');
+}
+
 
 class ConnectionTimeoutException extends NetworkException {
   ConnectionTimeoutException() : super('Connection timed out');
@@ -21,7 +29,8 @@ class ReceiveTimeoutException extends NetworkException {
 }
 
 class InvalidResponseException extends NetworkException {
-  InvalidResponseException(int? statusCode)
+  final int statusCode;
+  InvalidResponseException(this.statusCode)
       : super('Received invalid response with status code: $statusCode');
 }
 

@@ -1,19 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_app/features/treatment/data/models/usecases_models/usecase_requsts.dart';
-import 'package:my_app/features/treatment/domain/use_cases/add_treatement.dart';
-import 'package:my_app/features/treatment/domain/use_cases/delete_treatment.dart';
-import 'package:my_app/features/treatment/domain/use_cases/fetch_treatments_usecase.dart';
-import 'package:my_app/features/treatment/domain/use_cases/update_treatment.dart';
-import 'package:my_app/features/treatment/presentation/manager/treatmentBloc/treatment_state.dart';
+import 'package:therapiani/features/treatment/data/models/usecases_models/usecase_requsts.dart';
+import 'package:therapiani/features/treatment/domain/use_cases/add_treatement.dart';
+import 'package:therapiani/features/treatment/domain/use_cases/delete_treatment.dart';
+import 'package:therapiani/features/treatment/domain/use_cases/fetch_treatments_usecase.dart';
+import 'package:therapiani/features/treatment/domain/use_cases/update_treatment.dart';
+import 'package:therapiani/features/treatment/presentation/manager/treatmentBloc/treatment_state.dart';
 
 @Injectable()
 class TreatmentCubit extends Cubit<TreatmentState> {
-  TreatmentCubit(super.initialState,
+  TreatmentCubit(
       {required AddTreatmentUsecase addUsecase,
       required FetchTreatmentsUseCase fetchUsecase,
       required UpdateTreatmentUsecase updateUsecase,
-      required DeleteTreatmentUseCase deleteUsecase}) {
+      required DeleteTreatmentUseCase deleteUsecase})
+      : super(TreatmentState.initial()) {
     _updateTreatmentUsecase = updateUsecase;
     _addTreatmentUsecase = addUsecase;
     _fetchTreatmentsUseCase = fetchUsecase;
@@ -58,7 +59,7 @@ class TreatmentCubit extends Cubit<TreatmentState> {
     final result = await _deleteTreatmentUseCase(id: id);
     result.fold(
       (l) => emit(TreatmentState.deleteFailed(message: l.message)),
-      (r) => emit(TreatmentState.deleteSuccess(message: r)),
+      (r) => emit(TreatmentState.deleteSuccess(message: r.message)),
     );
   }
 }

@@ -1,7 +1,8 @@
 
-import 'package:my_app/core/entity/entity.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:therapiani/core/entity/entity.dart';
 
-abstract class TreatmentEntity extends BaseEntity<TreatmentEntity> {
+abstract class TreatmentEntity extends BaseEntity {
   TreatmentEntity(
       {required this.name,
       required this.dose,
@@ -11,6 +12,7 @@ abstract class TreatmentEntity extends BaseEntity<TreatmentEntity> {
       required this.startAt,
       required this.endAt});
 
+  @JsonKey(name: 'naem')
   final String name;
 
   final String dose;

@@ -1,10 +1,11 @@
 import 'package:injectable/injectable.dart';
-import 'package:my_app/core/repositories/core_repository.dart';
-import 'package:my_app/features/treatment/data/data_sources/remote_data_source/remote_data_source.dart';
-import 'package:my_app/features/treatment/data/models/usecases_models/usecase_requsts.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_entity.dart';
-import 'package:my_app/features/treatment/domain/entities/treatment_list_entity.dart';
-import 'package:my_app/features/treatment/domain/repositories/treatment_repo.dart';
+import 'package:therapiani/core/entity/string_response_entity.dart';
+import 'package:therapiani/core/repositories/core_repository.dart';
+import 'package:therapiani/features/treatment/data/data_sources/remote_data_source/remote_data_source.dart';
+import 'package:therapiani/features/treatment/data/models/usecases_models/usecase_requsts.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_entity.dart';
+import 'package:therapiani/features/treatment/domain/entities/treatment_list_entity.dart';
+import 'package:therapiani/features/treatment/domain/repositories/treatment_repo.dart';
 
 @Injectable(as: TreatmentRepository)
 class TreatmentRepositoryImp extends TreatmentRepository {
@@ -22,7 +23,7 @@ class TreatmentRepositoryImp extends TreatmentRepository {
   }
 
   @override
-  RepoResponse<String> deleteTreatment({required int id}) {
+  RepoResponse<StringResponseEntity> deleteTreatment({required int id}) {
     return repoCallBack(
       () => _dataSource.deleteTreatment(id: id),
     );
